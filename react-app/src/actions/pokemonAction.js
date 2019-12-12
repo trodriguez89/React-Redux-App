@@ -6,10 +6,10 @@ export const FETCH_POKE_FAILURE = "FETCH_POKE_FAILURE";
 
 export const getPoke = () => dispatch => {
     dispatch({type: FETCH_POKE_START});
-    const currentUrl = axios.get("https://pokeapi.co/api/v2/pokemon/")
+    axios.get("https://pokeapi.co/api/v2/pokemon/")
     .then(response => {
         console.log(response);
-        dispatch({ type: FETCH_POKE_SUCCESS, payload: response.data.results})
+        dispatch({ type: FETCH_POKE_SUCCESS, payload: response.data})
     })
     .catch(error => {
         console.log(error);
@@ -17,6 +17,10 @@ export const getPoke = () => dispatch => {
     })
 }
 
-// export const nextPoke = () => dispatch {
-//     dispatch({type: })
-// }
+export const nextPoke = (url) => dispatch => {
+    axios.get(url)
+    .then(response => {
+        console.log(response)
+        dispatch({type: FETCH_POKE_SUCCESS, payload: response.data})
+    })
+}

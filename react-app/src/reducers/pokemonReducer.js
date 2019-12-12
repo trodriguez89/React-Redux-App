@@ -4,7 +4,7 @@ const initialState = {
     pokemon: [],
     isFetching: false,
     error: "",
-    nextUrl: "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
+    nextUrl: "https://pokeapi.co/api/v2/pokemon/"
 
 }
 
@@ -18,7 +18,8 @@ export const pokemonReducer = (state=initialState, action) => {
         case FETCH_POKE_SUCCESS:
             return {
                 ...state,
-                pokemon: action.payload,
+                pokemon: action.payload.results,
+                nextUrl: action.payload.next,
                 isFetching: false,
                 error: ""
             }
