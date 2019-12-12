@@ -3,7 +3,8 @@ import {FETCH_POKE_START, FETCH_POKE_SUCCESS, FETCH_POKE_FAILURE} from "../actio
 const initialState = {
     pokemon: [],
     isFetching: false,
-    error: ""
+    error: "",
+    nextUrl: "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
 
 }
 
