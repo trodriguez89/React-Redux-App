@@ -17,7 +17,17 @@ export const pokemonReducer = (state=initialState, action) => {
         case FETCH_POKE_SUCCESS:
             return {
                 ...state,
-
+                pokemon: action.payload,
+                isFetching: false,
+                error: ""
             }
+        case FETCH_POKE_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }
+        default:
+            return state
     }
 }
