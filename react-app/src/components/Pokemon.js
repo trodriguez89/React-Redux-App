@@ -8,9 +8,12 @@ const DivStyle = styled.div`
     height: 350px;
     width: 350px;
     margin-top: 20px;
+    font-family: 'Lilita One', cursive;
 `
 
+
 const Pokemon = props => {
+
     return (
         <DivStyle>
             {props.isFetching && (<Loader type="Puff" color="#00BFFF" height={100} width={100} />)}

@@ -14,17 +14,45 @@ const DivStyle = styled.div`
 
 `
 
+const ButtonStyle = styled.button`
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #3d7dca;
+    color: white;
+    font-family: 'Lilita One', cursive;
+`
+
+const ButtonDiv = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+    margin: auto;
+`
+
+const NavStyle = styled.div`
+    border: 1px solid #3d7dca;
+    background-color: #ffd264;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lilita One', cursive;
+`
+
 const PokemonList = props => {
 
     return (
         <div>
-            <h1>List of Pokemon</h1>
-            <button onClick={props.getPoke}>Retrieve Pokemon!</button>
-            <button onClick={() => props.nextPoke(props.nextUrl)}>Next List of Pokemon!</button>
+            <NavStyle>
+                <h1>Pokemon!</h1>
+            </NavStyle>
+            <ButtonDiv>
+                <ButtonStyle onClick={props.getPoke}>Retrieve Pokemon!</ButtonStyle>
+                <ButtonStyle onClick={() => props.nextPoke(props.nextUrl)}>Next List of Pokemon!</ButtonStyle>
+            </ButtonDiv>
             <DivStyle>
                 {props.isFetching && (<Loader type="Puff" color="#00BFFF" height={100} width={100} />)}
                 {props.pokemon.map(item => (
-                    <Pokemon pokemon={item} isFetching={props.isFetching}/>
+                    <Pokemon pokemon={item} isFetching={props.isFetching} />
                 ))}
             </DivStyle>
         </div>
