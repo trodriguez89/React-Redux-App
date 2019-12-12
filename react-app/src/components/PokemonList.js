@@ -21,6 +21,7 @@ const ButtonStyle = styled.button`
     background-color: #3d7dca;
     color: white;
     font-family: 'Lilita One', cursive;
+    font-size: 20px;
 `
 
 const ButtonDiv = styled.div`
